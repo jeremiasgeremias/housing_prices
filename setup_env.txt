@@ -1,0 +1,7 @@
+=== In case, you set up the environment on windows machine ===
+
+py -m venv .venv
+Set-ExecutionPolicy Unrestricted -Scope Process
+.venv\Scripts\activate
+where python
+.venv\Scripts\python

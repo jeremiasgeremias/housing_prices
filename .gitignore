@@ -1,0 +1,73 @@
+# Ignore python environment
+.venv/
+env/
+
+# Ignore data files
+data/raw/
+data/processed/
+data/interim/
+data/external/
+
+# Ignore Jupyter notebook outputs
+.ipynb_checkpoints/
+*.ipynb
+
+# Ignore logs
+logs/
+
+# Ignore pycache
+__pycache__/
+
+# Ignore IDE files
+*.iml
+.idea/
+.vscode/
+
+# Ignore OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Ignore python cache
+*.pyc
+*.pyo
+__pycache__/
+
+# Ignore results
+results/
+output/
+reports/
+graphs/
+
+# Ignore test files
+.tox/
+.nox/
+.coverage
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.htmlcov/
+.jshintignore
+.jshintrc
+.nvmrc
+
+# Ignore virtualenv
+.tox/
+.nox/
+.coverage
+.cache
+.pytest_cache/
+
+# Ignore IDE files
+*.sublime-project
+*.sublime-workspace
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
