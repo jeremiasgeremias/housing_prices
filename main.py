@@ -84,7 +84,7 @@ for set_ in (strat_train_set, strat_test_set):
 # %%
 housing = strat_train_set.copy()
 # %%
-%matplotlib inline
+# %matplotlib inline
 housing.plot(kind="scatter", x="longitude", y="latitude", alpha = 0.1)
 # %%
 import matplotlib.pyplot as plt
