@@ -102,3 +102,45 @@ scatter_matrix(housing[attributes], figsize=(12,8))
 # %%
 housing.plot(kind="scatter", x="median_income", y="median_house_value", alpha=0.1)
 # %%
+housing["rooms_per_house"] = housing["total_rooms"] / housing["households"]
+housing["bedrooms_ratio"] = housing["total_bedrooms"] / housing["total_rooms"]
+housing["people_per_house"] = housing["population"] / housing["households"]
+
+# %%
+corr_matrix = housing.corr(numeric_only=True)
+corr_matrix["median_house_value"].sort_values(ascending=False)
+# %%
+from sklearn.impute import SimpleImputer
+# %%
+imputer = SimpleImputer(strategy = "median")
+housing_num = housing.drop("ocean_proximity", axis=1)
+imputer.fit(housing_num)
+imputer.statistics_
+# %%
+X = imputer.transform(housing_num)
+housing_tr = pd.DataFrame(X, columns = housing_num.columns, 
+                          index = housing_num.index)
+# %%
+from sklearn.preprocessing import OrdinalEncoder
+housing_cat = housing[['ocean_proximity']]
+ordinal_encoder = OrdinalEncoder()
+housing_cat_encoded = ordinal_encoder.fit_transform(housing_cat)
+# %%
+# housing_cat_encoded[:10]
+ordinal_encoder.categories_
+# %%
+from sklearn.preprocessing import OneHotEncoder
+
+cat_encoder = OneHotEncoder()
+housing_cat_1hot = cat_encoder.fit_transform(housing_cat)
+housing_cat_1hot
+
+# %%
+housing_cat_1hot.toarray()
+## cat_encoder remember positions since its is a sparse matrix
+## given another data to encode
+## it will use the same categories and position as the previous
+## since the fit transform will return the same encoder
+
+cat_encoder.categories_
+# %%
